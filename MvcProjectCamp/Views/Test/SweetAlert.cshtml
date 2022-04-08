@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "SweetAlert";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<br />
+<button class="btn btn-primary" id="btn1">Button1</button>
+<br />
+<button class="btn btn-primary" id="btn2">Button2</button>
+<br />
+<button class="btn btn-primary" id="btn3">Button3</button>
+<br />
+<button class="btn btn-primary" id="btn4">Button4</button>
+<br />
+<button class="btn btn-primary" id="btn5">Button5</button>
+
+
+<script>
+    $('#btn1').click(function () {
+        swal("Hello world!");
+    });
+    $('#btn2').click(function () {
+        swal("Burası Başlık Alanı", "Buraya da textini yazacaksın ve görünecek...");
+    });
+    $('#btn3').click(function () {
+        //swal("Başarılı", "Butona tıklandı :)", "success"); // 1. kullanım
+        swal({ // 2. kullanım
+            title: "Başarılı",
+            text: "Butona tıklandı :)",
+            icon: "success",
+            button: "Tamamdır" // burayı yazmazsan otomatik olarak 'OK' yazılır.
+        })
+    });
+    $('#btn4').click(function () {
+        swal({
+            title: "Emin misiniz?",
+            text: "Eğer silerseniz bütün değerler gidecektir!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Bütün değerler silindi!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Silinme işlemi iptal edildi!");
+                }
+            });
+    });
+    $('#btn5').click(function () {
+        swal("Emin misin?", {
+            buttons: ["Hayır!", "Evet"],
+        });
+    });
+</script>

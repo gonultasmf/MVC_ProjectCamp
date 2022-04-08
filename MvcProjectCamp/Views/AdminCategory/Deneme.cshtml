@@ -1,0 +1,12 @@
+﻿@model List<HttpPostedFileBase>
+@{
+    ViewBag.Title = "Deneme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <img src="@item.FileName" width="100" height="100" />
+    <br />
+}
+

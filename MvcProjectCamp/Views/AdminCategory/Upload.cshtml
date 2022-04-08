@@ -1,0 +1,15 @@
+﻿@model List<HttpPostedFileBase>
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Upload", "AdminCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="uploadingFiles" />
+    <input type="submit" value="Upload file" />
+    foreach (var item in Model)
+    {
+        <img src="@item.FileName" />
+    }
+}
